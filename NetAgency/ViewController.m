@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-#import <NetworkExtension/NetworkExtension.h>
+#import "PacketTunnelProvider.h"
+
 @interface ViewController ()
 @property (nonatomic ,strong) NSArray *dataSources;
 @property (nonatomic ,strong) UITableView *tableview;
+@property (nonatomic ,strong) PacketTunnelProvider *tunnelProvider;
 @end
 
 @implementation ViewController
@@ -26,7 +28,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)startVpn{
-    
+    [NETunnelProviderManager loadAllFromPreferencesWithCompletionHandler:^(NSArray<NETunnelProviderManager *> * _Nullable managers, NSError * _Nullable error) {
+        if (managers.count==0) {
+            //create manager
+        }
+        
+    }];
 }
 
 #pragma mark - Getter

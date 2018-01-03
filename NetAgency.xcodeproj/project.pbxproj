@@ -16,6 +16,8 @@
 		2A87084F1FFB5DD800CC6BDD /* NetAgencyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87084E1FFB5DD800CC6BDD /* NetAgencyTests.m */; };
 		2A87085A1FFB5DD800CC6BDD /* NetAgencyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8708591FFB5DD800CC6BDD /* NetAgencyUITests.m */; };
 		2A8708691FFB5F3600CC6BDD /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8708681FFB5F3600CC6BDD /* NetworkExtension.framework */; };
+		E6A2BEC41FFC5DC700480921 /* PacketTunnelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A2BEC31FFC5DC700480921 /* PacketTunnelProvider.m */; };
+		E6A2BEC91FFC5DC700480921 /* NetAgencyPacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E6A2BEC01FFC5DC700480921 /* NetAgencyPacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,28 @@
 			remoteGlobalIDString = 2A8708311FFB5DD700CC6BDD;
 			remoteInfo = NetAgency;
 		};
+		E6A2BEC71FFC5DC700480921 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A87082A1FFB5DD700CC6BDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6A2BEBF1FFC5DC700480921;
+			remoteInfo = NetAgencyPacketTunnel;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E6A2BECD1FFC5DC700480921 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E6A2BEC91FFC5DC700480921 /* NetAgencyPacketTunnel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A8708321FFB5DD700CC6BDD /* NetAgency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetAgency.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +76,11 @@
 		2A8708591FFB5DD800CC6BDD /* NetAgencyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetAgencyUITests.m; sourceTree = "<group>"; };
 		2A87085B1FFB5DD800CC6BDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A8708681FFB5F3600CC6BDD /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		E6A2BEC01FFC5DC700480921 /* NetAgencyPacketTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NetAgencyPacketTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A2BEC21FFC5DC700480921 /* PacketTunnelProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketTunnelProvider.h; sourceTree = "<group>"; };
+		E6A2BEC31FFC5DC700480921 /* PacketTunnelProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacketTunnelProvider.m; sourceTree = "<group>"; };
+		E6A2BEC51FFC5DC700480921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6A2BEC61FFC5DC700480921 /* NetAgencyPacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetAgencyPacketTunnel.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +106,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E6A2BEBD1FFC5DC700480921 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,6 +122,7 @@
 				2A8708341FFB5DD700CC6BDD /* NetAgency */,
 				2A87084D1FFB5DD800CC6BDD /* NetAgencyTests */,
 				2A8708581FFB5DD800CC6BDD /* NetAgencyUITests */,
+				E6A2BEC11FFC5DC700480921 /* NetAgencyPacketTunnel */,
 				2A8708331FFB5DD700CC6BDD /* Products */,
 				2A8708671FFB5F3600CC6BDD /* Frameworks */,
 			);
@@ -98,6 +134,7 @@
 				2A8708321FFB5DD700CC6BDD /* NetAgency.app */,
 				2A87084A1FFB5DD800CC6BDD /* NetAgencyTests.xctest */,
 				2A8708551FFB5DD800CC6BDD /* NetAgencyUITests.xctest */,
+				E6A2BEC01FFC5DC700480921 /* NetAgencyPacketTunnel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +181,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E6A2BEC11FFC5DC700480921 /* NetAgencyPacketTunnel */ = {
+			isa = PBXGroup;
+			children = (
+				E6A2BEC21FFC5DC700480921 /* PacketTunnelProvider.h */,
+				E6A2BEC31FFC5DC700480921 /* PacketTunnelProvider.m */,
+				E6A2BEC51FFC5DC700480921 /* Info.plist */,
+				E6A2BEC61FFC5DC700480921 /* NetAgencyPacketTunnel.entitlements */,
+			);
+			path = NetAgencyPacketTunnel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,10 +202,12 @@
 				2A87082E1FFB5DD700CC6BDD /* Sources */,
 				2A87082F1FFB5DD700CC6BDD /* Frameworks */,
 				2A8708301FFB5DD700CC6BDD /* Resources */,
+				E6A2BECD1FFC5DC700480921 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E6A2BEC81FFC5DC700480921 /* PBXTargetDependency */,
 			);
 			name = NetAgency;
 			productName = NetAgency;
@@ -200,6 +250,23 @@
 			productReference = 2A8708551FFB5DD800CC6BDD /* NetAgencyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E6A2BEBF1FFC5DC700480921 /* NetAgencyPacketTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6A2BECC1FFC5DC700480921 /* Build configuration list for PBXNativeTarget "NetAgencyPacketTunnel" */;
+			buildPhases = (
+				E6A2BEBC1FFC5DC700480921 /* Sources */,
+				E6A2BEBD1FFC5DC700480921 /* Frameworks */,
+				E6A2BEBE1FFC5DC700480921 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetAgencyPacketTunnel;
+			productName = NetAgencyPacketTunnel;
+			productReference = E6A2BEC01FFC5DC700480921 /* NetAgencyPacketTunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,6 +290,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2A8708311FFB5DD700CC6BDD;
 					};
+					E6A2BEBF1FFC5DC700480921 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = 2A87082D1FFB5DD700CC6BDD /* Build configuration list for PBXProject "NetAgency" */;
@@ -241,6 +312,7 @@
 				2A8708311FFB5DD700CC6BDD /* NetAgency */,
 				2A8708491FFB5DD800CC6BDD /* NetAgencyTests */,
 				2A8708541FFB5DD800CC6BDD /* NetAgencyUITests */,
+				E6A2BEBF1FFC5DC700480921 /* NetAgencyPacketTunnel */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +336,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2A8708531FFB5DD800CC6BDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6A2BEBE1FFC5DC700480921 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,6 +378,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E6A2BEBC1FFC5DC700480921 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6A2BEC41FFC5DC700480921 /* PacketTunnelProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -311,6 +398,11 @@
 			isa = PBXTargetDependency;
 			target = 2A8708311FFB5DD700CC6BDD /* NetAgency */;
 			targetProxy = 2A8708561FFB5DD800CC6BDD /* PBXContainerItemProxy */;
+		};
+		E6A2BEC81FFC5DC700480921 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6A2BEBF1FFC5DC700480921 /* NetAgencyPacketTunnel */;
+			targetProxy = E6A2BEC71FFC5DC700480921 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -522,6 +614,38 @@
 			};
 			name = Release;
 		};
+		E6A2BECA1FFC5DC700480921 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NetAgencyPacketTunnel/NetAgencyPacketTunnel.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NetAgencyPacketTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgency.NetAgencyPacketTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6A2BECB1FFC5DC700480921 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NetAgencyPacketTunnel/NetAgencyPacketTunnel.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NetAgencyPacketTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgency.NetAgencyPacketTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -557,6 +681,15 @@
 			buildConfigurations = (
 				2A8708651FFB5DD800CC6BDD /* Debug */,
 				2A8708661FFB5DD800CC6BDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6A2BECC1FFC5DC700480921 /* Build configuration list for PBXNativeTarget "NetAgencyPacketTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6A2BECA1FFC5DC700480921 /* Debug */,
+				E6A2BECB1FFC5DC700480921 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
