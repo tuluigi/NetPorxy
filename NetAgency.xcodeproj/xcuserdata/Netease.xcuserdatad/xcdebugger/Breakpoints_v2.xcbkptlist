@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetAgencyPacketTunnel/PacketTunnelProvider.m"
-            timestampString = "536751213.343565"
+            timestampString = "536752699.168696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetAgency/ViewController.m"
-            timestampString = "536751213.343845"
+            timestampString = "536752699.169539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-didReceiveMemoryWarning"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-onVpnAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
