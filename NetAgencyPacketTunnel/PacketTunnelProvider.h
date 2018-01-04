@@ -8,8 +8,7 @@
 
 @import NetworkExtension;
 
-UIKIT_EXTERN NSString *kNAPacketTunnelRemoteAddress;
-UIKIT_EXTERN NSString *kNAPacketTunnelMatchDomains;
+
 
 @interface PacketTunnelProvider : NEPacketTunnelProvider
 

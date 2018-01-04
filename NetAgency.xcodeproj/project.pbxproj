@@ -18,6 +18,7 @@
 		2A8708691FFB5F3600CC6BDD /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8708681FFB5F3600CC6BDD /* NetworkExtension.framework */; };
 		E6A2BEC41FFC5DC700480921 /* PacketTunnelProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A2BEC31FFC5DC700480921 /* PacketTunnelProvider.m */; };
 		E6A2BEC91FFC5DC700480921 /* NetAgencyPacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E6A2BEC01FFC5DC700480921 /* NetAgencyPacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E6A2BECF1FFDCF3100480921 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8708681FFB5F3600CC6BDD /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +48,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		E6A2BECD1FFC5DC700480921 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				E6A2BEC91FFC5DC700480921 /* NetAgencyPacketTunnel.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -81,6 +82,7 @@
 		E6A2BEC31FFC5DC700480921 /* PacketTunnelProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacketTunnelProvider.m; sourceTree = "<group>"; };
 		E6A2BEC51FFC5DC700480921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6A2BEC61FFC5DC700480921 /* NetAgencyPacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetAgencyPacketTunnel.entitlements; sourceTree = "<group>"; };
+		E6A2BED01FFDCF4500480921 /* NetAgency.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetAgency.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6A2BECF1FFDCF3100480921 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +145,7 @@
 		2A8708341FFB5DD700CC6BDD /* NetAgency */ = {
 			isa = PBXGroup;
 			children = (
+				E6A2BED01FFDCF4500480921 /* NetAgency.entitlements */,
 				2A8708351FFB5DD800CC6BDD /* AppDelegate.h */,
 				2A8708361FFB5DD800CC6BDD /* AppDelegate.m */,
 				2A8708381FFB5DD800CC6BDD /* ViewController.h */,
@@ -279,20 +283,39 @@
 					2A8708311FFB5DD700CC6BDD = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
 					};
 					2A8708491FFB5DD800CC6BDD = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 2A8708311FFB5DD700CC6BDD;
 					};
 					2A8708541FFB5DD800CC6BDD = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 2A8708311FFB5DD700CC6BDD;
 					};
 					E6A2BEBF1FFC5DC700480921 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -474,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -523,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -534,13 +557,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NetAgency/NetAgency.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7HY78492MU;
 				INFOPLIST_FILE = NetAgency/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgency;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opencourses.testhd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d1ddd0a7-39d7-4452-b986-327a8df1e890";
+				PROVISIONING_PROFILE_SPECIFIER = TestHDDevelopmentProfile0810;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -549,13 +574,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NetAgency/NetAgency.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7HY78492MU;
 				INFOPLIST_FILE = NetAgency/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgency;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opencourses.testhd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "203935f0-5db6-4cbd-b3e9-c71ea035cb45";
+				PROVISIONING_PROFILE_SPECIFIER = TestHDDevelopmentProfile0810;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -563,12 +590,13 @@
 		2A8708621FFB5DD800CC6BDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NetAgencyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgencyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opencourses.testhd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetAgency.app/NetAgency";
 			};
@@ -577,12 +605,13 @@
 		2A8708631FFB5DD800CC6BDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NetAgencyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgencyTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opencourses.testhd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NetAgency.app/NetAgency";
 			};
@@ -591,11 +620,13 @@
 		2A8708651FFB5DD800CC6BDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NetAgencyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgencyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = NetAgency;
 			};
@@ -604,11 +635,13 @@
 		2A8708661FFB5DD800CC6BDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NetAgencyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgencyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = NetAgency;
 			};
@@ -619,12 +652,13 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NetAgencyPacketTunnel/NetAgencyPacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7HY78492MU;
 				INFOPLIST_FILE = NetAgencyPacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgency.NetAgencyPacketTunnel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opencourses.testhd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "203935f0-5db6-4cbd-b3e9-c71ea035cb45";
+				PROVISIONING_PROFILE_SPECIFIER = TestHDDevelopmentProfile0810;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -638,7 +672,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NetAgencyPacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netase.NetAgency.NetAgencyPacketTunnel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opencourses.testhd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -656,7 +690,7 @@
 				2A87085D1FFB5DD800CC6BDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2A87085E1FFB5DD800CC6BDD /* Build configuration list for PBXNativeTarget "NetAgency" */ = {
 			isa = XCConfigurationList;
@@ -665,7 +699,7 @@
 				2A8708601FFB5DD800CC6BDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2A8708611FFB5DD800CC6BDD /* Build configuration list for PBXNativeTarget "NetAgencyTests" */ = {
 			isa = XCConfigurationList;
@@ -674,7 +708,7 @@
 				2A8708631FFB5DD800CC6BDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		2A8708641FFB5DD800CC6BDD /* Build configuration list for PBXNativeTarget "NetAgencyUITests" */ = {
 			isa = XCConfigurationList;
@@ -683,7 +717,7 @@
 				2A8708661FFB5DD800CC6BDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E6A2BECC1FFC5DC700480921 /* Build configuration list for PBXNativeTarget "NetAgencyPacketTunnel" */ = {
 			isa = XCConfigurationList;
@@ -692,7 +726,7 @@
 				E6A2BECB1FFC5DC700480921 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
